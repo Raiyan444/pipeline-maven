@@ -28,26 +28,26 @@ services:
     depends_on:
       - jenkins
 
-  db_host:
-    image: mysql:5.7
-    container_name: db
-    environment:
-      - "MYSQL_ROOT_PASSWORD=mysql@123"
-    volumes:
-      - "$PWD/mysql_data:/var/lib/mysql" 
-    networks:
-      - technet
+#  db_host:
+#    image: mysql:5.7
+#    container_name: db
+#    environment:
+#      - "MYSQL_ROOT_PASSWORD=mysql@123"
+#    volumes:
+#      - "$PWD/mysql_data:/var/lib/mysql" 
+#    networks:
+#      - technet
 
-  web_host:
-    container_name: web
-    image: ansible-web
-    build:
-      context: jenkins-ansible/web
-    restart: always
-    ports:
-      - "80:80"
-    networks:
-      - technet
+#  web_host:
+#    container_name: web
+#    image: ansible-web
+#    build:
+#      context: jenkins-ansible/web
+#    restart: always
+#    ports:
+#      - "80:80"
+#    networks:
+#      - technet
 
 networks:
   technet:    
